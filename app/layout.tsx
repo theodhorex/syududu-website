@@ -9,11 +9,11 @@ import './tailwind.css';
 
 export const metadata: Metadata = {
 	title: {
-		template: '%s | Dale Larroder',
-		default: 'Dale Larroder',
+		template: '%s | Aurelio Theodhore Riyanto',
+		default: 'Aurelio Theodhore Riyanto - Fullstack Web Developer & Web3 Enthusiast',
 	},
-	description: 'I build things for the web.',
-	metadataBase: new URL('https://dalelarroder.com'),
+	description: 'Fullstack Web Developer & Web3 Enthusiast passionate about building innovative solutions on the web. Currently studying informatics.',
+	metadataBase: new URL('https://aurelio.dev'),
 };
 
 interface RootLayoutProps {
@@ -26,23 +26,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			<head>
 				<link
 					rel='apple-touch-icon'
-					sizes='76x76'
-					href='/static/favicons/favicon.ico'
+					sizes='192x192'
+					href='/icon/icon.png'
+				/>
+				<link
+					rel='icon'
+					type='image/png'
+					sizes='192x192'
+					href='/icon/icon.png'
 				/>
 				<link
 					rel='icon'
 					type='image/png'
 					sizes='32x32'
-					href='/static/favicons/favicon.ico'
-				/>
-				<link
-					rel='icon'
-					type='image/png'
-					sizes='16x16'
-					href='/static/favicons/favicon.ico'
+					href='/icon/icon.png'
 				/>
 				<meta name='msapplication-TileColor' content='#000000' />
-				<meta name='theme-color' content='#000000' />
+				<meta name='theme-color' content='#06b6d4' />
 				<link rel='alternate' type='application/rss+xml' href='/feed.xml' />
 			</head>
 			<body className='bg-white text-black antialiased dark:bg-black dark:text-white selection:bg-primary-500 selection:text-white'>
@@ -50,6 +50,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 					attribute='class'
 					defaultTheme='dark'
 					themes={['dark', 'light']}
+					disableTransitionOnChange
+					storageKey='theme'
 				>
 					<LenisProvider>
 						<ThemeSwitch />
