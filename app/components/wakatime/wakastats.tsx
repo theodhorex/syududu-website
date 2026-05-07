@@ -25,13 +25,15 @@ export default async function WakaStats() {
 					<AnimatedNumber number={hours} /> <span>hours </span>
 					<AnimatedNumber number={minutes} /> <span>minutes</span>
 				</StatItem>
-				<StatItem title='Best Day Coding'>
-					<span>{format(thisWeekStats.best_day.date, 'PP')} — </span>
-					<AnimatedNumber
-						number={secondsToHours(thisWeekStats.best_day.total_seconds)}
-					/>{' '}
-					<span>hours</span>
-				</StatItem>
+				{thisWeekStats.best_day && (
+					<StatItem title='Best Day Coding'>
+						<span>{format(thisWeekStats.best_day.date, 'PP')} — </span>
+						<AnimatedNumber
+							number={secondsToHours(thisWeekStats.best_day.total_seconds)}
+						/>{' '}
+						<span>hours</span>
+					</StatItem>
+				)}
 				<StatItem title='Daily Average'>
 					<AnimatedNumber number={secondsToHours(allTimeStats.daily_average)} />{' '}
 					<span>hours / </span>
