@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh repo view theodhorex/syududu-website --json defaultBranchRef,branchProtectionRules)",
+      "Bash(gh pr *)",
+      "WebFetch(domain:github.com)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Theo\\\\Documents\\\\dev\\\\dalelarroder\" -Force)",
+      "Bash(Select-Object Name)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm run *)",
+      "Bash(taskkill *)",
+      "PowerShell(Stop-Process *)",
+      "Bash(pnpm add *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit --no-verify -m ' *)"
+    ]
+  }
+}

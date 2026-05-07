@@ -55,7 +55,7 @@ export default function Hero() {
 							<p>More about me: </p>
 							<div className='flex -ml-2'>
 								<Link
-									href='https://www.linkedin.com/in/dale-larroder/'
+									href='https://www.linkedin.com/in/theodhore-riyanto/'
 									target='_blank'
 									rel='noreferrer'
 									aria-label='linkedin'
@@ -64,7 +64,7 @@ export default function Hero() {
 									<LinkedinIcon className='h-9 w-9' />
 								</Link>
 								<Link
-									href='https://github.com/dlarroder'
+									href='https://github.com/theodhorex'
 									target='_blank'
 									rel='noreferrer'
 									aria-label='github'
@@ -73,7 +73,7 @@ export default function Hero() {
 									<GithubIcon className='h-9 w-9' />
 								</Link>
 								<Link
-									href='https://x.com/dalelarroder'
+									href='https://x.com/0xnanode'
 									target='_blank'
 									rel='noreferrer'
 									aria-label='twitter'
@@ -82,7 +82,7 @@ export default function Hero() {
 									<XIcon className='h-9 w-9' />
 								</Link>
 								<Link
-									href='mailto:hi@dalelarroder.com'
+									href='mailto:theodhore.dev@gmail.com'
 									aria-label='email'
 									rel='noreferrer'
 									data-skip-splash-cursor
