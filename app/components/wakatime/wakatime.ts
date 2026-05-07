@@ -7,7 +7,8 @@ const getWakatimeToken = cache(() => {
 	const secret_key = process.env.WAKATIME_SECRET_KEY;
 
 	if (!secret_key) {
-		throw new Error('WAKATIME_SECRET_KEY is required');
+		console.warn('WAKATIME_SECRET_KEY is not set');
+		return '';
 	}
 
 	const encodedKey = Buffer.from(`${secret_key} :`).toString('base64');
