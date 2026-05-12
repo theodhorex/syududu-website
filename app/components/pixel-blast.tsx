@@ -27,11 +27,11 @@ const createTouchTexture = () => {
 		ctx.fillStyle = 'black';
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 	};
-	const drawPoint = (p) => {
+	const drawPoint = (p: any) => {
 		const pos = { x: p.x * size, y: (1 - p.y) * size };
 		let intensity = 1;
-		const easeOutSine = (t) => Math.sin((t * Math.PI) / 2);
-		const easeOutQuad = (t) => -t * (t - 2);
+		const easeOutSine = (t: number) => Math.sin((t * Math.PI) / 2);
+  		const easeOutQuad = (t: number) => -t * (t - 2);
 		if (p.age < maxAge * 0.3) intensity = easeOutSine(p.age / (maxAge * 0.3));
 		else intensity = easeOutQuad(1 - (p.age - maxAge * 0.3) / (maxAge * 0.7)) || 0;
 		intensity *= p.force;
@@ -46,7 +46,7 @@ const createTouchTexture = () => {
 		ctx.arc(pos.x - offset, pos.y - offset, radius, 0, Math.PI * 2);
 		ctx.fill();
 	};
-	const addTouch = (norm) => {
+	const addTouch = (norm: any) => {
 		let force = 0;
 		let vx = 0;
 		let vy = 0;
