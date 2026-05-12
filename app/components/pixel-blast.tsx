@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import { Effect, EffectComposer, EffectPass, RenderPass } from 'postprocessing';
@@ -18,8 +19,8 @@ const createTouchTexture = () => {
 	texture.minFilter = THREE.LinearFilter;
 	texture.magFilter = THREE.LinearFilter;
 	texture.generateMipmaps = false;
-	const trail: Array<{x: number; y: number; age: number; force: number; vx: number; vy: number}> = [];
-	let last: {x: number; y: number; age: number; force: number; vx: number; vy: number} | null = null;
+	const trail = [];
+	let last = null;
 	const maxAge = 64;
 	let radius = 0.1 * size;
 	const speed = 1 / maxAge;
@@ -31,7 +32,7 @@ const createTouchTexture = () => {
 		const pos = { x: p.x * size, y: (1 - p.y) * size };
 		let intensity = 1;
 		const easeOutSine = (t: number) => Math.sin((t * Math.PI) / 2);
-  		const easeOutQuad = (t: number) => -t * (t - 2);
+		const easeOutQuad = (t: number) => -t * (t - 2);
 		if (p.age < maxAge * 0.3) intensity = easeOutSine(p.age / (maxAge * 0.3));
 		else intensity = easeOutQuad(1 - (p.age - maxAge * 0.3) / (maxAge * 0.7)) || 0;
 		intensity *= p.force;
@@ -91,7 +92,7 @@ const createTouchTexture = () => {
 	};
 };
 
-const createLiquidEffect = (texture, opts) => {
+const createLiquidEffect = (texture: any, opts: any) => {
 	const fragment = `
     uniform sampler2D uTexture;
     uniform float uStrength;
@@ -418,7 +419,7 @@ const PixelBlast = ({
 					value: Array.from({ length: MAX_CLICKS }, () => new THREE.Vector2(-1, -1))
 				},
 				uClickTimes: { value: new Float32Array(MAX_CLICKS) },
-				uShapeType: { value: SHAPE_MAP[variant] ?? 0 },
+				uShapeType: { value: SHAPE_MAP[variant as keyof typeof SHAPE_MAP] ?? 0 },
 				uPixelSize: { value: pixelSize * renderer.getPixelRatio() },
 				uScale: { value: patternScale },
 				uDensity: { value: patternDensity },
@@ -615,7 +616,7 @@ const PixelBlast = ({
 			};
 		} else {
 			const t = threeRef.current;
-			t.uniforms.uShapeType.value = SHAPE_MAP[variant] ?? 0;
+			t.uniforms.uShapeType.value = SHAPE_MAP[variant as keyof typeof SHAPE_MAP] ?? 0;
 			t.uniforms.uPixelSize.value = pixelSize * t.renderer.getPixelRatio();
 			t.uniforms.uColor.value.set(color);
 			t.uniforms.uScale.value = patternScale;
