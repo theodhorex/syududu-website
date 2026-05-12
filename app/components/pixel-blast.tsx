@@ -374,7 +374,7 @@ const PixelBlast = ({
 		if (!threeRef.current) mustReinit = true;
 		else if (prevConfigRef.current) {
 			for (const k of needsReinitKeys)
-				if (prevConfigRef.current[k] !== cfg[k]) {
+				if (prevConfigRef.current[k as keyof typeof cfg] !== cfg[k as keyof typeof cfg]) {
 					mustReinit = true;
 					break;
 				}
