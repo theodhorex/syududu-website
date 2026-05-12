@@ -482,9 +482,9 @@ const PixelBlast = ({
 
 			const timeOffset = randomFloat() * 1000;
 
-			let composer;
-			let touch;
-			let liquidEffect;
+			let composer: any;
+			let touch: any;
+			let liquidEffect: any;
 
 			if (liquid) {
 				touch = createTouchTexture();
