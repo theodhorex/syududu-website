@@ -522,7 +522,7 @@ const PixelBlast = ({
 				noisePass.renderToScreen = true;
 
 				if (composer && composer.passes.length > 0)
-					composer.passes.forEach((p) => (p.renderToScreen = false));
+					composer.passes.forEach((p: any) => (p.renderToScreen = false));
 
 				composer.addPass(noisePass);
 			}
@@ -581,10 +581,10 @@ const PixelBlast = ({
 				if (composer) {
 					if (touch) touch.update();
 
-					composer.passes.forEach((p) => {
+					composer.passes.forEach((p: any) => {
 						const effs = p.effects;
 						if (effs)
-							effs.forEach((eff) => {
+							effs.forEach((eff: any) => {
 								const u = eff.uniforms?.get('uTime');
 								if (u) u.value = uniforms.uTime.value;
 							});
